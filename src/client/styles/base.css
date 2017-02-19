@@ -28,3 +28,7 @@ li {
   width:14%;
   color: #E01F90;
 }
+
+label {
+  display: block;
+}

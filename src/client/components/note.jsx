@@ -41,6 +41,12 @@ class Note extends React.Component {
 
         <label>
           Your mood
+          <div>
+            <span>
+              <input type="radio" value="happy" />
+              <img className="icon" src={happy} alt="happy"/>
+            </span>
+          </div>
         </label>
 
           <label>
