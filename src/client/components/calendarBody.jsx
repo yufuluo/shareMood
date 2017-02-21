@@ -72,19 +72,19 @@ class CalendarBody extends React.Component {
     ));
   }
 
+   _renderWeekdays() {
+    return this.props.weekdays.map((day) => (
+      <li key={""+day}> {day} </li>
+    ));
+  }
+
   render() {
     return (
       <div className="cldDays">
         <div className="weekday">
           <ul>    
-            <li key="0">SUN</li>
-            <li key="1">MON</li>
-            <li key="2">TUE</li>
-            <li key="3">WED</li>
-            <li key="4">THU</li>
-            <li key="5">FRI</li>
-            <li key="6">SAT</li>
-           </ul>
+            {this._renderWeekdays()}
+          </ul>
         </div>
         <div className="CalendarDay">
           <ul>
@@ -100,7 +100,8 @@ class CalendarBody extends React.Component {
 
 const mapStateToProps = (state) => {
   return {selectedDay: state.selectedDay,
-          info: state.info
+          info: state.info,
+          weekdays: state.stat.NameofDay
   };
 };
 

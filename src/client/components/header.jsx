@@ -7,9 +7,9 @@ class Header extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        <div className="header">
+        <header>
           <h1 className="slogan">Welcome to Share Mood</h1>
-        </div>
+        </header>
         <div className="content">
           {this.props.children}
         </div>

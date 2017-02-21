@@ -44,10 +44,12 @@ class Note extends React.Component {
 
   _renderIcon(arr) {
     return arr.map( (icon) => {
-      return <span key={""+icon}>
-               <input type="radio" value={""+icon} />
-               <img className="icon" src={icon} alt={""+icon}/>
-             </span>
+      return (
+        <span key={""+icon}>
+          <input type="radio" value={""+icon} />
+          <img className="icon" src={icon} alt={""+icon}/>
+        </span>
+      );
     });
   }
 
