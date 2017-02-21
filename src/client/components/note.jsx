@@ -18,9 +18,9 @@ class Note extends React.Component {
     super(props);
     this.state = {
       userId: "",
-      mood: "",
-      health: "",
-      period: ""
+      mood: "happy",
+      health: "great",
+      period: "normal"
     };
   }
 
@@ -38,16 +38,46 @@ class Note extends React.Component {
     };
   }
 
-  handleChange() {
-
+  handleChangeMood(event) {
+    this.setState({mood: event.target.value});
   }
 
-  _renderIcon(arr) {
-    return arr.map( (icon) => {
+  handleChangeHealth(event) {
+    this.setState({health: event.target.value});
+  }
+
+  handleChangePeriod(event) {
+    this.setState({period: event.target.value});
+  }
+
+  _renderIconMood(arr) {
+    return arr.map((icon) => {
       return (
-        <span key={""+icon}>
-          <input type="radio" value={""+icon} />
-          <img className="icon" src={icon} alt={""+icon}/>
+        <span key={icon[1]}>
+          <input type="radio" value={icon[1]} checked={this.state.mood === icon[1]} onChange={this.handleChangeMood.bind(this)} />
+          <img className="icon" src={icon[0]} alt={icon[1]}/>
+        </span>
+      );
+    });
+  }
+
+  _renderIconHealth(arr) {
+    return arr.map((icon) => {
+      return (
+        <span key={icon[1]}>
+          <input type="radio" value={icon[1]} checked={this.state.health === icon[1]} onChange={this.handleChangeHealth.bind(this)} />
+          <img className="icon" src={icon[0]} alt={icon[1]}/>
+        </span>
+      );
+    });
+  }
+
+  _renderIconPeriod(arr) {
+    return arr.map((icon) => {
+      return (
+        <span key={icon[1]}>
+          <input type="radio" value={icon[1]} checked={this.state.period === icon[1]} onChange={this.handleChangePeriod.bind(this)} />
+          <img className="icon" src={icon[0]} alt={icon[1]}/>
         </span>
       );
     });
@@ -64,21 +94,21 @@ class Note extends React.Component {
         <label>
           What is your mood?
           <div>
-            {this._renderIcon([happy, smile, sad, cry])}
+            {this._renderIconMood([[happy, "happy"], [smile, "smile"], [sad, "sad"], [cry,"cry"]])}
           </div>
         </label>
 
           <label>
             How your body feels?
             <div>
-              {this._renderIcon([great, ok, ill, tired])}
+              {this._renderIconHealth([[great, "great"], [ok, "ok"], [ill, "ill"], [tired,"tired"]])}
             </div>
           </label>
 
           <label>
             Are you on your period or do you have sexual intercourse?
             <div>
-              {this._renderIcon([normal, period, intercourse, protect])}
+              {this._renderIconPeriod([[normal, "normal"], [period, "period"], [intercourse, "intercourse"], [protect,"protect"]])}
             </div>
           </label>
 
