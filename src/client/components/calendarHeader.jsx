@@ -1,6 +1,8 @@
 import React, {PropTypes} from "react";
 import {connect} from "react-redux";
 import reduce from "../reducers";
+import leftTriangle from "../images/left-triangle.svg";
+import rightTriangle from "../images/right-triangle.svg";
 
 class CalendarHeader extends React.Component {
 
@@ -16,10 +18,12 @@ class CalendarHeader extends React.Component {
     return (
       <div>
         <div className="headerborder">
-          <p> {this.props.months[this.props.month]} </p>
-          <p> {this.props.year} </p>
-          <p className="triangle-left" onClick={this.handleLeftClick.bind(this)}> </p>
-          <p className="triangle-right" onClick={this.handleRightClick.bind(this)}> </p>
+          <img className="triangle" src={leftTriangle} alt="leftTriangle" onClick={this.handleLeftClick.bind(this)}/>
+          <div className="currentMonth">
+            <p> {this.props.months[this.props.month]} </p>
+            <p> {this.props.year} </p>
+          </div>
+          <img className="triangle" src={rightTriangle} alt="rightTriangle" onClick={this.handleRightClick.bind(this)}/>
         </div>
       </div>
     );

@@ -48,7 +48,7 @@ class CalendarBody extends React.Component {
 
   _renderPrevMonth() {
     return this.prevMonth(this.props.daysInPrevMonth, this.props.firstDay).map((date) => (
-      <li className="prevMonth"> {date} </li>
+      <li key={"prev"+date} className="prevMonth"> {date} </li>
     ));
   }
 
@@ -57,33 +57,33 @@ class CalendarBody extends React.Component {
     let selectedDay = this.props.selectedDay;
     return this.currMonth(this.props.daysInCurrMonth).map( (date) => {
       if (date === today) {
-        return <li className="currvMonth today" onClick={() => this.handleClick(date)}> {date} </li>
+        return <li key={"curr"+date} className="currvMonth today" onClick={() => this.handleClick(date)}> {date} </li>
       }
       if (date === selectedDay.date && this.props.info.month === selectedDay.month && this.props.info.year === selectedDay.year) {
-        return <li className="currvMonth selectedDay" onClick={() => this.handleClick(date)}> {date} </li>
+        return <li key={"curr"+date} className="currvMonth selectedDay" onClick={() => this.handleClick(date)}> {date} </li>
       }
-      return <li className="currMonth" onClick={() => this.handleClick(date)}> {date} </li>
+      return <li key={"curr"+date} className="currMonth" onClick={() => this.handleClick(date)}> {date} </li>
     });
   }
 
   _renderNextMonth() {
     return this.nextMonth(this.props.daysInCurrMonth, this.props.firstDay).map((date) => (
-      <li className="nextMonth"> {date} </li>
+      <li key={"next"+date} className="nextMonth"> {date} </li>
     ));
   }
 
   render() {
     return (
-      <div>
+      <div className="cldDays">
         <div className="weekday">
           <ul>    
-            <li>SUN</li>
-            <li>MON</li>
-            <li>TUE</li>
-            <li>WED</li>
-            <li>THU</li>
-            <li>FRI</li>
-            <li>SAT</li>
+            <li key="0">SUN</li>
+            <li key="1">MON</li>
+            <li key="2">TUE</li>
+            <li key="3">WED</li>
+            <li key="4">THU</li>
+            <li key="5">FRI</li>
+            <li key="6">SAT</li>
            </ul>
         </div>
         <div className="CalendarDay">

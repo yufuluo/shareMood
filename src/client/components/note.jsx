@@ -1,6 +1,17 @@
 import React from "react";
 import {connect} from "react-redux";
 import happy from "../images/happy.svg";
+import smile from "../images/smile.svg";
+import sad from "../images/sad.svg";
+import cry from "../images/cry.svg";
+import great from "../images/great.svg";
+import ok from "../images/ok.svg";
+import ill from "../images/ill.svg";
+import tired from "../images/tired.svg";
+import normal from "../images/normal.svg";
+import period from "../images/period.svg";
+import intercourse from "../images/intercourse.svg";
+import protect from "../images/protected.svg";
 
 class Note extends React.Component {
   constructor(props) {
@@ -31,6 +42,15 @@ class Note extends React.Component {
 
   }
 
+  _renderIcon(arr) {
+    return arr.map( (icon) => {
+      return <span key={""+icon}>
+               <input type="radio" value={""+icon} />
+               <img className="icon" src={icon} alt={""+icon}/>
+             </span>
+    });
+  }
+
 
   render() {
     return (
@@ -40,42 +60,27 @@ class Note extends React.Component {
         <form ref="form">
 
         <label>
-          Your mood
+          What is your mood?
           <div>
-            <span>
-              <input type="radio" value="happy" />
-              <img className="icon" src={happy} alt="happy"/>
-            </span>
+            {this._renderIcon([happy, smile, sad, cry])}
           </div>
         </label>
 
           <label>
             How your body feels?
-            <input
-              className="ui-input inputField" 
-              type="description"
-              placeholder="Description" 
-              name="description" 
-              ref="description" 
-              invalidClassName="ui-error"
-              onChange={this.handleChange.bind(this)}
-            />
+            <div>
+              {this._renderIcon([great, ok, ill, tired])}
+            </div>
           </label>
 
           <label>
-            Are you on your period?
-            <input
-              className="ui-input inputField" 
-              type="text"
-              placeholder="Price" 
-              name="price" 
-              ref="price" 
-              invalidClassName="ui-error"
-              onChange={this.handleChange.bind(this)}
-            />
+            Are you on your period or do you have sexual intercourse?
+            <div>
+              {this._renderIcon([normal, period, intercourse, protect])}
+            </div>
           </label>
 
-          <button type="button" value="Submit" onClick={this.handleSubmit.bind(this)} />
+          <button type="button" value="Submit" onClick={this.handleSubmit.bind(this)} > Submit </button>
         </form>
       </div>
     );

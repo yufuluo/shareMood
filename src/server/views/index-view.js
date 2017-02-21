@@ -11,6 +11,7 @@ import rootReducer from "../../client/reducers";
 const Promise = require("bluebird");
 
 function createReduxStore(req, match) { // eslint-disable-line
+  const initialState = {};
   const store = createStore(rootReducer, initialState);
   return Promise.resolve(store);
 }

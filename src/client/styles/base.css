@@ -8,6 +8,7 @@
 
 body {
   font: 12px Helvetica, Arial, sans-serif;
+  margin: 0;
 }
 
 a.button {
@@ -16,8 +17,18 @@ a.button {
   border-radius: 5px;
 }
 
+button {
+  margin: 20px 0;
+  padding: 10px;
+  font-size: larger;
+  border: solid 2px #dccac8;
+  border-radius: 5px;
+  background-color: #eabec0;
+}
 
-p {margin:0;
+p {
+  display: block;
+  margin: 5px;
   padding: 0;    
   font-family: -apple-system-font, "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 }
@@ -25,10 +36,60 @@ p {margin:0;
 li {
   list-style: none;
   float: left;
-  width:14%;
-  color: #E01F90;
+  width:13%;
+  color: #ef7f83;
+  font-weight: bolder;
 }
 
 label {
   display: block;
+  margin-top: 25px;
 }
+
+footer {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 50px;
+  width: 100%;
+  margin-top: 50px;
+}
+
+:global(.wrapper) {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  justify-content: space-between;
+}
+
+:global(.header) {
+  display: flex;
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  background-image: url("../images/title_bg.png");
+  background-size: cover;
+  overflow: hidden;
+  opacity: 0.75;
+}
+
+:global(.slogan) {
+  margin: 0 40px;
+  align-self: center;
+  color: white;
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+:global(.calendar) {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+}
+
+:global(.footer_img) {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  margin: 20px 20px 5px 0;
+}
+

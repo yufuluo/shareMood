@@ -19,12 +19,14 @@ class Calendar extends React.Component {
     let todate = (this.props.info.month === this.state.today.getMonth() && this.props.info.year === this.state.today.getFullYear()) ? this.state.today.getDate() : -1;
 
     return (
-      <div className="calendarBorder"  >
-        <CalendarHeader month={this.props.info.month} year={this.props.info.year} />
-        <CalendarBody daysInCurrMonth={days[this.props.info.month]} 
-        daysInPrevMonth={prevMonthDay} 
-        firstDay={new Date((this.props.info.month + 1) + "/01/" + this.props.info.year).getDay()} 
-        today={todate}/>
+      <div className="calendar">
+        <div className="calendarBorder">
+          <CalendarHeader month={this.props.info.month} year={this.props.info.year} />
+          <CalendarBody daysInCurrMonth={days[this.props.info.month]} 
+          daysInPrevMonth={prevMonthDay} 
+          firstDay={new Date((this.props.info.month + 1) + "/01/" + this.props.info.year).getDay()} 
+          today={todate}/>
+        </div>
         <Note date={this.props.selectedDay.date} month={this.props.selectedDay.month} year={this.props.selectedDay.year} />
       </div>
     );
