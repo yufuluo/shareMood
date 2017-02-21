@@ -18,9 +18,9 @@ class Note extends React.Component {
     super(props);
     this.state = {
       userId: "",
-      mood: "happy",
-      health: "great",
-      period: "normal"
+      mood: "",
+      health: "",
+      period: ""
     };
   }
 
@@ -32,9 +32,9 @@ class Note extends React.Component {
 
     const data = {
       // userId: this.props.userId,
-      mood: this.refs.itemName.value.trim(),
-      health: this.refs.description.value.trim(),
-      period: this.refs.price.value.trim()
+      mood: this.state.mood,
+      health: this.state.health,
+      period: this.state.period
     };
   }
 
