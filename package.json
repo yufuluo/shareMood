@@ -14,7 +14,7 @@
     "client",
     "test"
   ],
-  "main": "server/index.js",
+  "main": "lib/server/index.js",
   "keywords": [
     "share mood"
   ],
