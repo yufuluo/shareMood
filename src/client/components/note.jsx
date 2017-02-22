@@ -39,7 +39,7 @@ class Note extends React.Component {
   }
 
   handleChangeMood(event) {
-    this.setState({mood: (event.target.checked? "" : event.target.value)});
+    this.setState({mood: event.target.value});
   }
 
   handleChangeHealth(event) {
