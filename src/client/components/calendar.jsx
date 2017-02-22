@@ -27,7 +27,7 @@ class Calendar extends React.Component {
           firstDay={new Date((this.props.info.month + 1) + "/01/" + this.props.info.year).getDay()} 
           today={todate}/>
         </div>
-        <Note date={this.props.selectedDay.date} month={this.props.selectedDay.month} year={this.props.selectedDay.year} />
+        <Note date={this.props.selectedDay.date} month={this.props.selectedDay.month} year={this.props.selectedDay.year} today={todate}/>
       </div>
     );
   }

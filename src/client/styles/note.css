@@ -1,13 +1,15 @@
 :global(.form_box) {
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   margin-top: 100px;
-  height: 427px;
+  height: 450px;
 }
 
 :global(.background) {
   border-radius: 5px;
   background-color: #f2f2f2;
-  padding: 40px;
+  padding: 30px;
 }
 
 :global(.inputField) {
@@ -24,7 +26,7 @@
 :global(.center) {
   margin: auto;
   width: 80%;
-  padding: 10px;
+  padding: 0 10px;
   text-align: center;
 }
 
@@ -38,5 +40,9 @@
 :global(.form_box span) {
   display: inline-block;
   height: 40px;
-  margin: 10px;
+  margin: 5px 10px;
+}
+
+:global(.form_box label) {
+  flex: 1;
 }

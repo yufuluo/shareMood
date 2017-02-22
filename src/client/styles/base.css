@@ -18,7 +18,7 @@ a.button {
 }
 
 button {
-  margin: 20px 0;
+  margin: 20px 0 0 0;
   padding: 10px;
   font-size: larger;
   border: solid 2px #dccac8;
@@ -43,7 +43,12 @@ li {
 
 label {
   display: block;
-  margin-top: 25px;
+  margin-top: 15px;
+}
+
+textarea {
+  display: block;
+  margin: 10px 12px 0 12px;
 }
 
 footer {

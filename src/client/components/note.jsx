@@ -39,7 +39,7 @@ class Note extends React.Component {
   }
 
   handleChangeMood(event) {
-    this.setState({mood: event.target.value});
+    this.setState({mood: (event.target.checked? "" : event.target.value)});
   }
 
   handleChangeHealth(event) {
@@ -88,7 +88,7 @@ class Note extends React.Component {
     return (
       <div className="form_box background">
         <h3 className="center"> {this.props.months[this.props.month]} {this.props.date} {this.props.year} </h3>
-        <h3 className="center"> Hey! How are you today? </h3>
+        <h3 className="center"> Hey! {this.props.today === this.props.date ? "How are you today" : "What's special on this day"}? </h3>
         <form ref="form">
 
         <label>
@@ -110,6 +110,12 @@ class Note extends React.Component {
             <div>
               {this._renderIconPeriod([[normal, "normal"], [period, "period"], [intercourse, "intercourse"], [protect,"protect"]])}
             </div>
+          </label>
+
+          <label>
+            Note and schedule
+            <textarea rows="4" cols="38" placeholder="Write your note and schedule here..." ref="Note">
+            </textarea>
           </label>
 
           <button type="button" value="Submit" onClick={this.handleSubmit.bind(this)} > Submit </button>
