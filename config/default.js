@@ -19,6 +19,9 @@ module.exports = {
         "pathPrefix": "dist"
       }
     },
+    "./server/plugins/api": {
+      "module": "./{{env.APP_SRC_DIR}}server/plugins/api"
+    },
     "webapp": {
       "module": "electrode-react-webapp/lib/hapi",
       "options": {

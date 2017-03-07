@@ -6,6 +6,8 @@ process.on("SIGINT", () => {
   process.exit(0);
 });
 
+require("mongoose").connect("mongodb://localhost:27017/test");
+
 const electrodeConfippet = require("electrode-confippet");
 const staticPathsDecor = require("electrode-static-paths");
 const support = require("electrode-archetype-react-app/support");
