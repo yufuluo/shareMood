@@ -37,11 +37,11 @@ function noteHandler(request, reply) {
   };
 
   Note.create(noteData, (err, result) => {
-    // if (err) {
-    //   return reply.status(500).json({error: "DB_ERROR"});
-    // }
+    if (err) {
+      return reply({error: "DB_ERROR"});
+    }
 
-    reply(noteData);
+    reply({note: noteData.note});
   });
 }
 
