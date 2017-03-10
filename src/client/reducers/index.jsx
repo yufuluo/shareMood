@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { PREV_MONTH, NEXT_MONTH, SELECT_DATE } from "../actions/action";
+import { PREV_MONTH, NEXT_MONTH, SELECT_DATE, CHANGE_MONTH } from "../actions/action";
 
 // const updateData = (state, action) => {
 //   return action.data || state;
@@ -25,6 +25,8 @@ const InitialStat = {
       leap: [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
       NameofDay: ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
     };
+
+const InitialMonthNotes = {};
 
 function info(state = InitialInfo, action) {
   switch (action.type) {
@@ -56,10 +58,20 @@ function stat(state = InitialStat, action) {
   return state;
 }
 
+function monthNotes(state = InitialMonthNotes, action) {
+  switch (action.type) {
+    case CHANGE_MONTH:
+      return action.data;
+    default:
+      return state;
+  }
+}
+
 const celendarApp = combineReducers({
   info,
   selectedDay,
-  stat
+  stat,
+  monthNotes
 });
 
 export default celendarApp;

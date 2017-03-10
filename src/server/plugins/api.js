@@ -6,6 +6,7 @@ const fs = require("fs");
 const Path = require("path");
 const assert = require("assert");
 const Note = require("../model/note");
+const User = require("../model/user");
 
 plugin.register = function (server, options, next) {
   server.route({
@@ -22,8 +23,41 @@ plugin.register = function (server, options, next) {
     handler: noteHandler
   });
 
+  server.route({
+    method: "POST",
+    path: "/changeMonth",
+    handler: monthHandler
+  });
+
   next();
 };
+
+function monthHandler(request, reply) {
+  const noteData = {
+    // userId: request.payload.userId,
+    currMonth: request.payload.currMonth
+  };
+
+  Note.find({month: noteData.currMonth}, (err, result) => {
+    if (err) {
+      return reply({error: "DB_ERROR"});
+    }
+    const monthNotes = {};
+    result.forEach((elem) => {
+      monthNotes[elem.date] = {
+        _id: elem._id,
+        month: elem.month,
+        date: elem.date,
+        mood: elem.mood,
+        health: elem.health,
+        period: elem.period,
+        note: elem.note
+      }
+    });
+
+    return reply(monthNotes);
+  });
+}
 
 function noteHandler(request, reply) {
   const noteData = {

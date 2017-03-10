@@ -5,6 +5,7 @@
 export const PREV_MONTH = 'PREV_MONTH';
 export const NEXT_MONTH = 'NEXT_MONTH';
 export const SELECT_DATE = 'SELECT_DATE';
+export const CHANGE_MONTH = 'CHANGE_MONTH';
 // export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
 
 /*
@@ -24,7 +25,7 @@ export const SELECT_DATE = 'SELECT_DATE';
 // }
 
 export function selectDate(date) {
-  return { type: SELECT_DATE, date};
+  return { type: SELECT_DATE, date };
 }
 
 export function preveMonth(move) {
@@ -33,4 +34,8 @@ export function preveMonth(move) {
 
 export function nextMonth(move) {
   return { type: NEXT_MONTH, move };
+};
+
+export function changeMonth(data) {
+  return { type: CHANGE_MONTH, data };
 };

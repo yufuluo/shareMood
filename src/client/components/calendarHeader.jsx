@@ -8,10 +8,38 @@ class CalendarHeader extends React.Component {
 
   handleLeftClick() {
     this.props.dispatch({type: "PREV_MONTH", move: 1});
+    setTimeout(() => this.handleChange(this.props.month), 0);
   }
 
   handleRightClick() {
     this.props.dispatch({type: "NEXT_MONTH", move: 1});
+    setTimeout(() => this.handleChange(this.props.month), 0);
+    // this.handleChange();
+  }
+
+  handleChange(month) {
+    month = (month >= 9) ? ("" + (month + 1)) : ("0" + (month + 1));
+    const data = {
+      // userId: this.props.userId,
+      currMonth: parseInt(this.props.year +  month)
+    };
+
+    fetch("/changeMonth", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    }).then((res) => {
+      return res.json();
+    }).then((data) => {
+      // console.log(data);
+      this.props.dispatch({type: "CHANGE_MONTH", data: data});
+        // this.setState({info: info, showDeals: true});
+    }).catch((err) => {
+      this.setState({serverError: err.message || "There's an error in our server, please try again later."});
+    });
   }
 
   render() {

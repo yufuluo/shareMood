@@ -44,7 +44,7 @@ class Note extends React.Component {
       note: this.refs.note.value
     };
 
-    console.log(data);
+    // console.log(data);
 
     if (this._isValidInput(data)) {
       fetch("/submitNote", {
